@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('./Pics/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    background-color: aliceblue;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.logo a {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.bt {
+    width: 100px;
+    height: 40px;
+    border: 2px solid red;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin-left: 20px;
+}
+
+.navigation .bt:hover {
+    background-color: red;
+    transition:  0.5s;
+}
+
+/* This is slider css */
+
+/* Slider styling */
+.slider {
+    position: relative;
+    top: 60px;
+    width: 100%;
+    height: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* Slide styling */
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+}
+
+/* Only display the slide that corresponds to the checked radio button */
+#slide1:checked ~ .slides #s1,
+#slide2:checked ~ .slides #s2,
+#slide3:checked ~ .slides #s3,
+#slide4:checked ~ .slides #s4 {
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* Text overlay styling */
+figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: 0.5s;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Hide all radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Move slides based on which radio button is checked */
+#slide1:checked ~ .slides { transform: translateX(0); }
+#slide2:checked ~ .slides { transform: translateX(-100%); }
+#slide3:checked ~ .slides { transform: translateX(-200%); }
+#slide4:checked ~ .slides { transform: translateX(-300%); }
+
+/* Navigation dots */
+.nav {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #777;
+}
+
+/* Next and Previous buttons */
+.controls label {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.controls label:hover {
+    background-color: rgba(100, 100, 100, 0.8);
+}
+
+/* Position for each control button */
+.control1.prev { left: 10px; }
+.control1.next { right: 10px; }
+
+.control2.prev { left: 10px; }
+.control2.next { right: 10px; }
+
+.control3.prev { left: 10px; }
+.control3.next { right: 10px; }
+
+.control4.prev { left: 10px; }
+.control4.next { right: 10px; }
+
+/* Only show relevant controls for each slide */
+#slide1:checked ~ .controls .control1,
+#slide2:checked ~ .controls .control2,
+#slide3:checked ~ .controls .control3,
+#slide4:checked ~ .controls .control4 {
+    display: block;
+}
+
+.controls label {
+    display: none; /* Hide all controls by default */
+}
+
+/* Image Grid Section */
+.image-grid {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.image-grid h2 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+
+.grid-item p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
